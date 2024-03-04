@@ -74,6 +74,7 @@ def create_argparser():
         fp16_scale_growth=1e-3,
     )
     defaults.update(model_and_diffusion_defaults())
+    """从字典中自动生成命令行传参的arqument Darser"""
     parser = argparse.ArgumentParser()
     add_dict_to_argparser(parser, defaults)
     return parser

@@ -24,6 +24,11 @@ For creating your own dataset, simply dump all of your images into a directory w
 
 The images will automatically be scaled and center-cropped by the data-loading pipeline. Simply pass `--data_dir path/to/images` to the training script, and it will take care of the rest.
 
+训练代码从图像文件目录中读取图像。在[datasets](datasets)文件夹中，我们提供了为ImageNet、LSUN卧室和CIFAR-10准备这些目录的说明/脚本。
+
+要创建自己的数据集，只需将所有图像转储到扩展名为“.jpg”、“.jpeg”或“.png”的目录中即可。如果希望训练类条件模型，请将文件命名为“mylabel1_XXX.jpg”、“mylabel2_YYY.jpg”等，以便数据加载程序知道“mylabel1”和“mylabel2”是标签。子目录也将被自动枚举，因此图像可以被组织成递归结构（尽管目录名称将被忽略，并且下划线前缀被用作名称）。
+
+数据加载管道将自动对图像进行缩放和中心裁剪。只需将“--data_dir path/to/images”传递给训练脚本，它就可以处理其余部分。
 ## Training
 
 To train your model, you should first decide some hyperparameters. We will split up our hyperparameters into three groups: model architecture, diffusion process, and training flags. Here are some reasonable defaults for a baseline:
